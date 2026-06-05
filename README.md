@@ -1,40 +1,61 @@
-# 🔍 Mini SIEM Log Search Tool
+## ⚠️ Important Usage Note
 
-> A lightweight Python-based Security Information and Event Management (SIEM) simulation tool designed for log ingestion, analysis, and threat hunting.
+### 📁 Folder Path Requirement
+
+> **This tool requires a DIRECTORY PATH containing log files, NOT the path to an individual log file.**
+
+#### ✅ Correct Input
+
+```text
+/Users/pipo/Desktop/Logs
+```
+
+#### ❌ Incorrect Input
+
+```text
+/Users/pipo/Desktop/Logs/access.log
+```
+
+> The application uses recursive directory scanning (`os.walk()`) to locate and analyze all supported log files inside the specified folder and its subdirectories.
 
 ---
 
-## 🚀 Features
+## 📂 Supported Log Formats
 
-### 📂 Multi-Format Log Support
+* `.txt`
+* `.log`
+* `.http`
+* `.dns`
+* `.ftp`
+* `.sh`
 
-* Supports multiple log formats:
-  * `.txt`
-  * `.log`
-  * `.http`
-  * `.dns`
-  * `.ftp`
-  * `.sh`
+---
 
-### 🔎 Log Analysis Capabilities
+## ▶️ Getting Started
 
-* Recursive directory scanning
-* Keyword-based searching
-* Case-insensitive matching
-* Multi-file log analysis
-* Lightweight and fast execution
+### Step 1: Run the Program
 
-### 📊 Detailed Output
+```bash
+python3 log_ingester.py
+```
 
-For every match found, the tool displays:
-
-* File Name
-* Line Number
-* Matching Log Entry
-
-Example:
+### Step 2: Enter the Folder Path
 
 ```text
+Folder Path: /Users/pipo/Desktop/Logs
+```
+
+### Step 3: Enter a Search Keyword
+
+```text
+Search Keyword: Failed
+```
+
+### Step 4: Review Results
+
+```text
+<<<<<<< RESULTS >>>>>>>
+
 [access.log] Line 2: Failed login from 192.168.1.10
 [access.log] Line 4: Failed login from 192.168.1.20
 
@@ -43,82 +64,88 @@ Total Matches: 2
 
 ---
 
-## 🎯 Use Cases
+## 📝 Sample Log File
 
-### SOC (Security Operations Center)
-
-* Failed login detection
-* Security event monitoring
-* Log review and investigation
-* Initial incident triage
-
-### Threat Hunting
-
-* Search for suspicious keywords
-* Hunt Indicators of Compromise (IOCs)
-* Investigate abnormal activities
-* Analyze attacker behavior
-
-### Incident Response
-
-* Historical log review
-* Security event correlation
-* Evidence collection
-* Basic forensic investigations
-
----
-
-## 🛠 Technologies Used
-
-* **Python 3**
-* **OS Module**
-* **File Handling**
-* **Directory Traversal**
-* **String Matching**
-
----
-
-## 📈 Workflow
+### access.log
 
 ```text
-Log Files
-   ↓
-Directory Scan
-   ↓
-Log Ingestion
-   ↓
-Keyword Search
-   ↓
-Result Analysis
-   ↓
-Security Findings
+User login successful
+Failed login from 192.168.1.10
+Admin login successful
+Failed login from 192.168.1.20
 ```
 
 ---
 
-## ⭐ Key Highlights
+## 📂 Sample Directory Structure
 
-* **Beginner-Friendly SIEM Simulation**
-* **Cross-Platform Python Application**
-* **Supports Multiple Log Sources**
-* **Useful for SOC Analyst Practice**
-* **Demonstrates Log Ingestion & Search Concepts**
+```text
+Logs/
+└── access.log
+```
+
+Provide the following path when prompted:
+
+```text
+/Users/pipo/Desktop/Logs
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 📊 Sample Output
+
+```text
+<<<<<<< RESULTS >>>>>>>
+
+[access.log] Line 2: Failed login from 192.168.1.10
+[access.log] Line 4: Failed login from 192.168.1.20
+
+Total Matches: 2
+```
+
+---
+
+## 📋 Report Generation
+
+> Future versions will support exporting findings into investigation reports for SOC and Incident Response workflows.
+
+Example Report:
+
+```text
+=============================
+Mini SIEM Investigation Report
+=============================
+
+Keyword Searched: Failed
+
+Match 1:
+File: access.log
+Line: 2
+Event: Failed login from 192.168.1.10
+
+Match 2:
+File: access.log
+Line: 4
+Event: Failed login from 192.168.1.20
+
+Total Matches: 2
+```
+
+---
+
+## 🔥 Planned Enhancements
 
 ### Detection & Alerting
 
 - [ ] Custom Detection Rules
-- [ ] Sigma-like Rule Engine
+- [ ] Sigma-like Detection Engine
 - [ ] Alert Generation
 - [ ] Severity Classification
 
 ### Threat Hunting
 
-- [ ] IP Address Extraction
 - [ ] IOC Matching
+- [ ] IP Address Extraction
 - [ ] Domain Extraction
 - [ ] Threat Intelligence Integration
 
@@ -131,46 +158,34 @@ Security Findings
 
 ### Visualization
 
-- [ ] Dashboard
+- [ ] Dashboard Interface
 - [ ] Log Analytics
 - [ ] Event Statistics
 - [ ] Security Metrics
 
 ---
 
-## 🎓 Learning Objectives
+## 💡 Usage Tips
 
-This project demonstrates fundamental SIEM concepts including:
+> Always provide the **folder path** containing log files.
 
-> Log Ingestion
+> Do **NOT** provide the path to an individual log file.
 
-> Log Analysis
+> The tool automatically scans all supported files inside the selected directory.
 
-> Threat Hunting
-
-> Event Searching
-
-> Security Monitoring
-
-> Incident Investigation
-
----
-
-## 💡 Why This Project?
-
-**Mini SIEM Log Search Tool** was built as a hands-on cybersecurity learning project to understand how modern SIEM solutions operate behind the scenes.
-
-### Skills Demonstrated
-
-* Python Programming
-* Log Analysis
-* Threat Hunting
-* Security Monitoring
-* SOC Operations
-* Incident Response Fundamentals
+> Useful for SOC Analyst training, Threat Hunting exercises, and Incident Response practice.
 
 ---
 
 ## 🏷️ Tags
 
-`python` `cybersecurity` `siem` `log-analysis` `soc-analyst` `incident-response` `threat-hunting` `blue-team` `security-monitoring` `log-ingestion`
+`python`
+`cybersecurity`
+`siem`
+`log-analysis`
+`soc-analyst`
+`incident-response`
+`threat-hunting`
+`blue-team`
+`security-monitoring`
+`log-ingestion`
